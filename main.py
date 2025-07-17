@@ -1,13 +1,17 @@
 from api import fetch_weather
-from excel import append_to_excel
+from excel import append_to_excel, append_to_csv
+from database import add_record
 import time
 
 while True:
     data = fetch_weather()
 
     append_to_excel(data)
+    append_to_csv(data)
 
-    time.sleep(45)
+    add_record(data)
+
+    time.sleep(10)
     print("Pobrano nowe dane")
 
 
